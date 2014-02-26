@@ -11,8 +11,12 @@ before do
 end
 
 Instagram.configure do |config|
-  config.client_id = "my_client_id"
-  config.client_secret = "my_client_secret"
+  config.client_id = ""
+  config.client_secret = ""
+end
+
+get '/' do
+  erb :form
 end
 
 get '/search' do
@@ -24,5 +28,6 @@ post '/search' do
   for media_item in Instagram.tag_recent_media("#{params[:message]}")
     html << "<img src='#{media_item.images.thumbnail.url}'>"
   end
-  html 
+  html << '<form action="/search" method="post"> <input type="text" name="message"> <input type="submit"> </form>'
+  html
 end
