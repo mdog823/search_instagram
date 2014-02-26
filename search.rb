@@ -11,8 +11,8 @@ before do
 end
 
 Instagram.configure do |config|
-  config.client_id = "f0e802bf7a5e4ac8b0176642f703b44d"
-  config.client_secret = "c8a8c76307524ddebaee319f0cf98e95"
+  config.client_id = "my_client_id"
+  config.client_secret = "my_client_secret"
 end
 
 get '/search' do
